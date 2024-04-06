@@ -97,7 +97,7 @@ void Degrees::PlayGame( const std::vector<std::unique_ptr<CSpace>>& mBoardSpaces
     {
         std::cout << "Game Over" << std::endl;
         int maxSuccess = INT_MIN;
-        std::string winner;
+        std::string winner = "";
         for (const auto& playerPtr : mPlayers) 
         {
             CPlayer& player = *playerPtr;
