@@ -58,7 +58,7 @@ void Assessment::AddDefferrdPlayer( CPlayer* player )
 
 void Assessment::GetHelpWithAssessment( CPlayer* currentPlayer ) 
 {
-    if ( currentPlayer->GetMotivation() >= mMotivationalCost / 2 ) 
+    if ( currentPlayer -> GetMotivation() >= mMotivationalCost / 2 ) 
     {
         int numCompletedPlayers = mpCompletedPlayers.size() + 1; // Add 1 for the current player
         if ( numCompletedPlayers == 0 ) 
@@ -83,12 +83,12 @@ void Assessment::GetHelpWithAssessment( CPlayer* currentPlayer )
         mpCompletedPlayers.insert( currentPlayer );
 
         // Complete the assessment for the current player
-        currentPlayer->CompleteAssessment( mMotivationalCost / 2, scorePerPlayer, this );
+        currentPlayer -> CompleteAssessment( mMotivationalCost / 2, scorePerPlayer, this );
     }
     else 
     {
         // If the player doesnt have enough motivation to get help
-        std::cout << currentPlayer->GetName() << " does not have enough motivation to complete the assessment." << std::endl;
+        std::cout << currentPlayer -> GetName() << " does not have enough motivation to complete the assessment." << std::endl;
     }
 }
 
