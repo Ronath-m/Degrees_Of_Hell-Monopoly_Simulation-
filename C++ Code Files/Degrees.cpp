@@ -19,7 +19,7 @@ Degrees::Degrees( const std::vector<std::string>& playerNames, int initialMotiva
 
 int Degrees::SpinnerSpin( std::string playerName ) 
 {
-    int spin =  static_cast<int>(static_cast<double> (rand()) / (RAND_MAX + 1) * 10.0f + 1); // Generates a random number between 1-10 and return
+    int spin =  static_cast<int>( static_cast<double> (rand()) / (RAND_MAX + 1) * 10.0f + 1 ); // Generates a random number between 1-10 and return
     std::cout << playerName << " spins " << spin << std::endl;
     return spin;
 }
@@ -29,7 +29,7 @@ void Degrees::RemovePlayer( const std::string& playerName )
     // Remove a player from the players vector based on the player name passed
     auto it = std::remove_if(mPlayers.begin(), mPlayers.end(), [&](const auto& player) 
         {
-            return player->GetName() == playerName;
+            return player -> GetName() == playerName;
         });
     mPlayers.erase(it, mPlayers.end());
 }
@@ -47,17 +47,17 @@ void Degrees::PlayGame( const std::vector<std::unique_ptr<CSpace>>& mBoardSpaces
             break;  // Break out of the round loop
         }
         std::cout << "ROUND " << round << std::endl; // Display round number
-        std::cout << "=========" <<std::endl;
+        std::cout << "=========" << std::endl;
 
         // Loop throuhg each player
         for ( auto& playerPtr : mPlayers ) 
         {
             CPlayer& player = *playerPtr;
             player.GetDegreesReference( this );
-            int spin = SpinnerSpin(player.GetName()); // Call the spinner
+            int spin = SpinnerSpin( player.GetName() ); // Call the spinner
             int previousPosition = player.GetPosition(); // Save the previous position before updating
             // Move player on the board based on the modulus. Wrapping around if necessary to stay within bounds
-            player.MovePlayer((player.GetPosition() + spin) % mBoardSpaces.size());
+            player.MovePlayer( ( player.GetPosition() + spin ) % mBoardSpaces.size() );
             player.HandleMovementResult( previousPosition, 0 ); // Checking if the welcome week space was passed
 
             // Check if the game if over
@@ -74,7 +74,7 @@ void Degrees::PlayGame( const std::vector<std::unique_ptr<CSpace>>& mBoardSpaces
 
             // Land on the space and execute the functionality
             CSpace* board_space = space;
-            board_space->LandOn(player);
+            board_space -> LandOn(player);
 
             // Handle defferred assessments when theres required motivation
             if ( !player.GetDefferredAssessments().empty() && player.GetMotivation() >= 0 ) 
@@ -82,7 +82,7 @@ void Degrees::PlayGame( const std::vector<std::unique_ptr<CSpace>>& mBoardSpaces
                 player.HandleDeferredAssessments();
             }
             // Deffer assessments when theres not enough movivation
-            if (player.GetMotivation() < 0) 
+            if ( player.GetMotivation() < 0 ) 
             {
                 player.HandleMitigatingCircumstances();
 
