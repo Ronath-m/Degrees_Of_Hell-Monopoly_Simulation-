@@ -9,4 +9,5 @@ int main()
     srand( game.SeedSpinner("seed.txt") );
     game.PlayGame(); // Calling to the method to start the simulation
     return 0;
+    _CrtDumpMemoryLeaks(); // Check memory leaks
 }
