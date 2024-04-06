@@ -13,7 +13,7 @@ Board::Board( const std::string& filename )
     }
 
     // Read each line of the file
-    std::string line;
+    std::string line = "";
     while ( getline( file, line )) 
     {
         // Tokenize each line
@@ -34,7 +34,7 @@ Board::Board( const std::string& filename )
 
         // Determine the type of the space
         int type = std::stoi( tokens[0] );
-        std::string mName; // Name of the space
+        std::string mName = ""; // Name of the space
         // Considering token 1 and 2 as the name for type 1 and 3 spaces
         if ( type == 1 || type == 3 ) 
         {
