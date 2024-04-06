@@ -5,7 +5,6 @@
 
 int main() 
 {
-    //srand(666); // Seed for the spinner
     Game game( "degrees.txt", 1000, 0, 0, 1 ); // Initialising game object
     srand( game.SeedSpinner("seed.txt") );
     game.PlayGame(); // Calling to the method to start the simulation
