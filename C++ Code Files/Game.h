@@ -13,7 +13,7 @@ class Game
     private:
         Board mBoard; // Instance of the game board
         Degrees mDegrees; // Instance of the degrees manager 
-        Game* pGameReference; // Pointer to the current game instance
+        Game* pGameReference = nullptr; // Pointer to the current game instance
 
     public:
         /**
